@@ -20,3 +20,5 @@ function reverseArray(input){
     return output;
   }
   console.log(reverseArray([1, 2, 3, 4, 5]));
+
+  ![whiteboarding](https://raw.githubusercontent.com/sarabahrini/data-structures-and-algorithms/master/image/Image%20from%20iOS%20(7).jpg)
