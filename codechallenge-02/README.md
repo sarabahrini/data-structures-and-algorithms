@@ -1,4 +1,3 @@
-![whiteboarding](https://raw.githubusercontent.com/sarabahrini/data-structures-and-algorithms/master/assets/Image%20from%20iOS%20(8).jpg);
 
 # Array Shift
 Add a value in the middle of an array.
@@ -11,6 +10,4 @@ Trevor Stam & Sara Bahrini
 
 ## Solution
 
-![whiteboarding photo challenge-2](path to your image)
-
-This is the markdown file. You can copy paste
+![whiteboarding](https://raw.githubusercontent.com/sarabahrini/data-structures-and-algorithms/master/assets/Image%20from%20iOS%20(8).jpg);
