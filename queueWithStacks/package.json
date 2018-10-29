@@ -1,0 +1,20 @@
+{
+  "name": "queuewithstacks",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest --verbose --watchAll"
+  },
+  "author": "Sara Bahrini",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^5.8.0",
+    "jest": "^23.6.0"
+  }
+}
