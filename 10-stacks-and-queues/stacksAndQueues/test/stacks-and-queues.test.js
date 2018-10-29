@@ -191,6 +191,7 @@ describe('Test to is the dequeue works properly', () => {
     queue.enqueue('b');
     queue.enqueue('a');
     queue.dequeue();
+    console.log(queue)
 
     const actual = queue.front;
     const expected = 'b';
@@ -234,6 +235,7 @@ describe('Test to is the peek works properly', () => {
     queue.enqueue('c');
     queue.enqueue('b');
     queue.enqueue('a');
+    console.log(queue)
 
     const actual = queue.peek();
     // console.log(queue.peek())
