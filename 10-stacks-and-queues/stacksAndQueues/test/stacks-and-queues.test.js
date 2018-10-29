@@ -236,7 +236,6 @@ describe('Test to is the peek works properly', () => {
     queue.enqueue('a');
 
     const actual = queue.peek();
-    // console.log(queue.peek())
     const expected = 'd';
     expect(actual).toBe(expected);
 
