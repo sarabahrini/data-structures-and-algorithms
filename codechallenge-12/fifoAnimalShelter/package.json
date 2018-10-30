@@ -1,0 +1,14 @@
+{
+  "name": "fifo-animal-shelter",
+  "version": "1.0.0",
+  "description": "<!-- Short summary or background information -->",
+  "main": "fifo-animal-shelter.js",
+  "scripts": {
+    "test": "jest --verbose"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^23.6.0"
+  }
+}
