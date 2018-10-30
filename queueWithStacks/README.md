@@ -18,4 +18,4 @@ We took the approach of instantiating a stack in the PseudoQueue constructor for
 The Big O time for both enqueueing and dequeueing is O(n). The Big O space for both enqueueing and dequeueing is O(1).
 
 ## Solution
-[queue-with-stacks.jpg](/Users/Sara.Bahrini/codefellows/401/assignment/code-challenges /data-structures-and-algorithms/queueWithStacks/assets/queue-with-stacks.jpg)
+[queue-with-stacks.jpg](https://raw.githubusercontent.com/sarabahrini/data-structures-and-algorithms/master/assets/queue-with-stacks.jpg)
