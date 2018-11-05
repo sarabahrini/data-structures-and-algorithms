@@ -1,0 +1,16 @@
+{
+  "name": "tree",
+  "version": "1.0.0",
+  "description": "<!-- Short summary or background information -->",
+  "main": "tree.js",
+  "scripts": {
+    "test": "jest --verbose"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^5.8.0",
+    "jest": "^23.6.0"
+  }
+}
