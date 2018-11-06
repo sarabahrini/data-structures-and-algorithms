@@ -4,15 +4,16 @@ class Node {
   constructor(value, left = null, right = null) {
     this.value = value;
     this.left = left;
-    this.right - right;
+    this.right = right;
   }
 }
 
 class BinaryTree {
-  constructor() {
-    this.root = null;
+  constructor(root=null) {
+    this.root = root;
   }
-  preOrder(node) {
+
+  preOrder(node = this.root) {
     if (node === null) return null;
 
     let array = [];
@@ -83,52 +84,54 @@ class BinarySearchTree {
     while (currentNode !== null) {
       if (node.value < currentNode.value) {
         if (currentNode.left !== null) {
-          currentNode = currentNode.let;
+          currentNode = currentNode.left;
         } else {
           currentNode.left = node;
           return;
         }
+      }
         if (node.value > currentNode.value) {
           if (currentNode.right !== null) {
             currentNode = currentNode.right;
-            return;
+            
           } else {
-            currentNode.left = node;
+            currentNode.right = node;
             return;
           }
         }
       }
-    }
+    
     return;
   }
 
-  search(value) {
+
+   search(value) {
 
     if (this.root === null) {
-      return 'Tree is empty';
+    return 'Tree is empty';
     }
 
     let currentNode = this.root;
 
     while (currentNode !== null) {
-
       if (value === currentNode.value) {
         return currentNode;
+
       } else if (value < currentNode.value) {
         if (currentNode.left === null) {
-          return "Value does not exist"
+          return "Value does not exist";
         } else {
           currentNode = currentNode.left;
         }
-      } else if (value > currentNode) {
+      } else if (value > currentNode.value) {
         if (currentNode.right === null) {
-          return "Value does not exist"
+          return "Value does not exist";
         } else {
           currentNode = currentNode.right;
         }
       }
     }
-  }
+   }
 }
 
 module.exports = {

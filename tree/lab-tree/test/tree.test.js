@@ -127,7 +127,7 @@ describe('Testing BinarySearchTree search method', () => {
     expect(searchTree.search(6)).toEqual(six);
   });
   it('should return Node with specified value does not exist', () => {
-    expect(searchTree.search(7)).toEqual('value does not exist');
+    expect(searchTree.search(7)).toEqual('Value does not exist');
   });
   it('should return Tree is empty if tree is empty', () => {
     expect(emptySearchTree.search(8)).toEqual('Tree is empty');
