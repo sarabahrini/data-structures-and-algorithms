@@ -50,19 +50,19 @@ const four = new Node (4);
 const five = new Node (5);
 const five = new Node (6);
 
-describe('Test BinarySearchTree add method', () => {
+xdescribe('Test BinarySearchTree add method', () => {
 
-  it('should make the added the root of empty tree', () => {})
-  it('should add the node when tree has multiple levels to the correct position', () => {})
-  it('should add the node smaller than root to the left edge of the root', () => {})
+  xit('should make the added the root of empty tree', () => {})
+  xit('should add the node when tree has multiple levels to the correct position', () => {})
+  xit('should add the node smaller than root to the left edge of the root', () => {})
 
 });
 
-describe('Test BinaryTree search method', () => {
+xdescribe('Test BinaryTree search method', () => {
 
-  it('should return Tree is empty', () => {})
-  it('should return value not found', () => {})
-  it('should return the searched value', () => {})
+  xit('should return Tree is empty', () => {})
+  xit('should return value not found', () => {})
+  xit('should return the searched value', () => {})
 
 });
 

@@ -8,6 +8,41 @@ class Node {
   }
 }
 
+class Queue {
+  constructor(){
+    this.front = null;
+    this.rear = null;
+    this.storage = [];
+  }
+}
+
+class Queue {
+  constructor(){
+    this.front = null;
+    this.rear = null;
+    this.storage = [];
+  }
+    enqueue(node){ 
+
+    this.storage.unshift(node);
+    this.rear = this.storage[0];
+    if(!this.front){
+      this.front = this.storage[0];
+    } 
+      return this;
+      
+  }
+    
+  dequeue(){ 
+
+    if(this.storage){
+    this.front = this.storage[this.storage.length-2]
+    return this.storage.pop();
+  } return "value undefined";
+
+}
+}
+
 class BinaryTree {
   constructor(root=null) {
     this.root = root;
@@ -65,6 +100,27 @@ class BinaryTree {
     }
     populateArray(node);
 
+    return array;
+  }
+
+  breadthFirst(){
+
+    const queue = new Queue ();
+    const array = [];
+    if (!this.root) return "Value does not exist";
+    queue.enqueue(this.root);
+    let currentNode = queue.front;
+
+
+    while ( queue.storage.length > 0 ) {
+      
+      if(currentNode.left){queue.enqueue(currentNode.left);}
+      if(currentNode.right){queue.enqueue(currentNode.right);}
+       currentNode = queue.dequeue();
+
+      
+      array.push(currentNode.value);
+    }
     return array;
   }
 }
