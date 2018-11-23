@@ -1,0 +1,17 @@
+{
+  "name": "hash-table",
+  "version": "1.0.0",
+  "description": "<!-- Short summary or background information -->",
+  "main": "hashTable.js",
+  "scripts": {
+    "test": "jest --verbose",
+    "watch": "jest --watchAll"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^5.9.0",
+    "jest": "^23.6.0"
+  }
+}
