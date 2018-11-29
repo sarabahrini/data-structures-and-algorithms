@@ -1,0 +1,22 @@
+{
+  "name": "left-join",
+  "version": "1.0.0",
+  "description": "Sara ",
+  "main": "Wallaby.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest --verbose"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^23.6.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.9.0"
+  }
+}

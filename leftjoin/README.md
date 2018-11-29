@@ -1,5 +1,8 @@
 # Hashmap LEFT JOIN
-Sara Bahrini and David Chambers
+This challenge is done by Sara Bahrini and David Chambers.
+codes saved in lib and test folders are from Katherin's GitHub just for comparison and study.
+
+
 
 ## Challenge
 Write a function that LEFT JOINs two hashmaps into a single data structure.
@@ -14,4 +17,4 @@ Avoid utilizing any of the library methods available to your language.
 <!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
 
 ## Solution
-<!-- Embedded whiteboard image -->
+![leftjoin](assets/leftjoin.JPG)
