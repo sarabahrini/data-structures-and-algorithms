@@ -1,8 +1,5 @@
 'use strict';
 
-//Not sure what this does 
-// const util = require('util');
-
 class HashTable {
 
   constructor(size) {
@@ -10,14 +7,14 @@ class HashTable {
     this.map = new Array(size);
   }
 
+
   hash(key) {
     return key.split('').reduce((acc, currentValue) => acc + currentValue.charCodeAt(0), 0) % this.size;
   }
 
-  // A method/function named add that takes in both the key and value. This method should hash the key and add the key and value pair to the table.
   add(key, value) {
     if (!key || !value) { return "invalid argument - must have both key and value"; }
-    let index = this.hash(key);
+    let indexOfBucket = this.hash(key);
     console.log(index, key, value);
 
     if (!this.map[index]) { this.map[index] = []; }
