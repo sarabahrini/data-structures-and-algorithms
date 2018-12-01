@@ -1,8 +1,8 @@
 'use strict';
-const{Vertex} = require ('../lib/graph.js');
-const{Graph} = require ('../lib/graph.js');
+const { Vertex } = require('../lib/graph.js');
+const { Graph } = require('../lib/graph.js');
 
-const graph = new Graph();
+const testGraph = new Graph();
 
 const ten = new Vertex(10);
 const two = new Vertex(2);
@@ -12,108 +12,86 @@ const three = new Vertex(3);
 const eight = new Vertex(8);
 console.log(eight)
 
-graph.addVertex(ten);
-graph.addVertex(two);
-graph.addVertex(six);
-graph.addVertex(seven);
-graph.addVertex(three);
-graph.addVertex(eight);
+testGraph.addVertex(ten);
+testGraph.addVertex(two);
+testGraph.addVertex(six);
+testGraph.addVertex(seven);
+testGraph.addVertex(three);
+testGraph.addVertex(eight);
 
-graph.addDirectedEdge(ten, two);
-graph.addDirectedEdge(ten, six);
-graph.addDirectedEdge(ten, three);
-graph.addDirectedEdge(two, seven);
-graph.addDirectedEdge(six, seven);
-graph.addDirectedEdge(six, eight);
-graph.addDirectedEdge(three, eight);
-graph.addDirectedEdge(eight, seven);
+testGraph.addDirectedEdge(ten, two);
+testGraph.addDirectedEdge(ten, six);
+testGraph.addDirectedEdge(ten, three);
+testGraph.addDirectedEdge(two, seven);
+testGraph.addDirectedEdge(six, seven);
+testGraph.addDirectedEdge(six, eight);
+testGraph.addDirectedEdge(three, eight);
+testGraph.addDirectedEdge(eight, seven);
 
-describe('Graph ',()=>{
-  it('should be instance of graph', () => {});
-});
+console.log(testGraph);
 
-describe('addVertex',()=>{
+describe('addVertex', () => {
+
   it('should return undefined when vertex is not passed in', () => {
-    let actual = graph.addVertex();
+    let actual = testGraph.addVertex();
     expect(actual).toBe(undefined);
   });
 
-  it('should create a vertex', () => {
-    const newGraph = new Graph();
-    newGraph.addVertex(eight);
-    expect(newGraph._adjacencyList.get(eight)).toEqual([]);
+  it('should return "vertex already exist" when adding an existing vertex', () => {
+
+    let actual = testGraph.addVertex(ten);
+    expect(actual).toEqual("vertex already exist");
+
   });
 
-  it('should create the second vertex', ()=>{
-    const newGraph = new Graph();
-    newGraph.addVertex(eight);
-    newGraph.addVertex(seven);
-    let actual = newGraph._adjacencyList.size; 
-    expect(actual).toEqual(2);
+  it('should create multiple vertices', () => {
+
+    let actual = testGraph._adjacencyList.size;
+    expect(actual).toEqual(6);
+
   });
 });
 
-describe('addDirectedEdge',() => {
-  it('should return undefined when "vertices are not defined"', () => {
+describe('addDirectedEdge', () => {
+
+  it('should return error when "vertices are not defined"', () => {
+    let actual = testGraph.addDirectedEdge(ten, null);
+    expect(actual).toBe('vertices are not defined');
+  });
+
+  it('should create multiple edges for defined vertices', () => {
+    let actual = testGraph._adjacencyList.get(ten).length;
+    expect(actual).toEqual(3);
+  });
+
+  it('should return error when graph is empty', () => {
     const newGraph = new Graph();
-    newGraph.addVertex(ten);
     let actual = newGraph.addDirectedEdge(ten, two);
-    expect(actual).toBe('vertices are not defined');
+    expect(actual).toBe("vertices are not defined");
   });
 
-  it('should create a "vertices are not defined"', () => {
-    const newGraph = new Graph();
-    newGraph.addVertex(ten);
-    newGraph.addVertex(two);
-    let actual = newGraph.addDirectedEdge(ten);
-    expect(actual).toBe('vertices are not defined');
-  });
-
-  it('should add direct edge with defined vertices', ()=>{
-    const newGraph = new Graph();
-    newGraph.addVertex(ten);
-    newGraph.addVertex(two);
-    newGraph.addDirectedEdge(ten,two);
-    let actual = newGraph._adjacencyList.get(ten);
-    expect(actual.length).toEqual(1);
-  });
 });
 
-describe('getNeighbors',() => {
-  it('should return "vertex is not passed in"', () => {
-    const newGraph = new Graph();
-    newGraph.addVertex(ten);
-    newGraph.addVertex(two);
-    newGraph.addDirectedEdge(ten,two);
-    let actual = newGraph.getNeighbors(ten).length;
-    console.log(newGraph.getNeighbors(ten))
-    expect(actual).toEqual(1);
+describe('getNeighbors', () => {
+
+  it('should return "vertices are not defined" when no vertext is passed in as an argument', () => {
+
+    let actual = testGraph.getNeighbors();
+    expect(actual).toEqual("vertices are not defined");
+
   });
 
   it('should return the number of neighbors of the corresponding vertex', () => {
 
-    const newGraph = new Graph();
+    let actual = testGraph.getNeighbors(ten).length;
+    expect(actual).toEqual(3);
 
-    newGraph.addVertex(ten);
-    newGraph.addVertex(two);
-    newGraph.addVertex(six);
-    newGraph.addDirectedEdge(ten, two);
-    newGraph.addDirectedEdge(ten, six);
-    
-    let actual = newGraph.getNeighbors(ten).length;
-    expect(actual).toEqual(2);
   });
 
-  it('should return "vertices are not defined" when vertex is not passed ', ()=>{
-    const newGraph = new Graph();
+  it('should return "vertices are not defined" when an undefined vertex is passed in ', () => {
 
-    newGraph.addVertex(ten);
-    newGraph.addVertex(two);
-    newGraph.addVertex(six);
-    newGraph.addDirectedEdge(ten, two);
-    newGraph.addDirectedEdge(ten, six);
-    
-    let actual = newGraph.getNeighbors();
+    let actual = testGraph.getNeighbors(null);
     expect(actual).toBe("vertices are not defined");
   });
+
 });
