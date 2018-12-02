@@ -1,0 +1,19 @@
+{
+  "name": "graph",
+  "version": "1.0.0",
+  "description": "",
+  "main": "wallaby.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest --verbose"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^5.9.0",
+    "jest": "^23.6.0"
+  }
+}
