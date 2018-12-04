@@ -1,6 +1,8 @@
 'use strict';
 const { Vertex } = require('../lib/graph.js');
 const { Graph } = require('../lib/graph.js');
+const { Edge } = require('../lib/graph.js');
+
 
 const testGraph = new Graph();
 
@@ -11,7 +13,7 @@ const seven = new Vertex(7);
 const three = new Vertex(3);
 const eight = new Vertex(8);
 console.log(eight)
-
+       
 testGraph.addVertex(ten);
 testGraph.addVertex(two);
 testGraph.addVertex(six);
@@ -47,7 +49,7 @@ describe('addVertex', () => {
   it('should create multiple vertices', () => {
 
     let actual = testGraph._adjacencyList.size;
-    expect(actual).toEqual(6);
+    expect(actual).toEqual(7);
 
   });
 });
@@ -74,7 +76,7 @@ describe('addDirectedEdge', () => {
 
 describe('getNeighbors', () => {
 
-  it('should return "vertices are not defined" when no vertext is passed in as an argument', () => {
+  it('should return "vertices are not defined" when no vertex is passed in as an argument', () => {
 
     let actual = testGraph.getNeighbors();
     expect(actual).toEqual("vertices are not defined");
@@ -93,5 +95,25 @@ describe('getNeighbors', () => {
     let actual = testGraph.getNeighbors(null);
     expect(actual).toBe("vertices are not defined");
   });
-
 });
+
+describe('breadthFirst', () => { 
+
+  it('should return error when startNode is not defined', () => {
+    
+    let actual = testGraph.bfs();
+    expect(actual).toBe("No valid start node");
+  });
+
+  it('should return an array of values', () => {
+   
+    let actual = testGraph.bfs(ten);
+    expect(actual).toEqual([10,2,6,3,7,8]);                                                                                                                                                                                                                                                                                                                                                               
+  });
+
+  it('should return an array of unique values', () => {
+    // console.log(testGraph.bfs(eight))
+    let actual = testGraph.bfs(eight);
+    expect(actual.length).toEqual(2);
+  });
+});                                                                                                                                                                                                                                                                                                                          
