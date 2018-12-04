@@ -15,5 +15,8 @@
   "devDependencies": {
     "eslint": "^5.9.0",
     "jest": "^23.6.0"
+  },
+  "dependencies": {
+    "babel": "^6.23.0"
   }
 }

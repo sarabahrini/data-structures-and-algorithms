@@ -1,5 +1,6 @@
 
 'use strict';
+
 // const util = require('util');
 // const dfs = require('./dfs');
 
@@ -22,7 +23,7 @@ class Graph {
   }
 
   addVertex(vertex) {
-    if(this._adjacencyList.has(vertex)){
+    if (this._adjacencyList.has(vertex)) {
       return "vertex already exist";
     }
     this._adjacencyList.set(vertex, []);
@@ -37,29 +38,51 @@ class Graph {
   }
 
   getNeighbors(vertex) {
-  
-    if (!this._adjacencyList.has(vertex)) {
+
+    if (!this._adjacencyList.has(vertex) || typeof vertex === 'undefined') {
       return "vertices are not defined";
     }
     return [...this._adjacencyList.get(vertex)];
   }
 
-  // bfs(startNode) {
-  //   const queue = [];
-  //   const visitedNode = new Set();
-  //   queue.push(startNode);
-  //   visitedNode.add(startNode);
-  // }
+
+  bfs(startNode) {
+if(!startNode){
+  return "No valid start node"
+}
+    const arr = [];
+
+    // set is a native JS object which collects items with no duplicates
+    const visitedNodes = new Set();
+
+    arr.push(startNode);
+    //.add & .has  are built in methods for set
+    visitedNodes.add(startNode);
+
+    while(arr.length){
+      const currentNode = arr.shift();
+      const neighbors = this.getNeighbors(currentNode);
+      for(let neighbor of neighbors){
+        const neighborNode = neighbor.vertex;
+        if(visitedNodes.has(neighborNode)){
+          continue;
+        }else {
+          visitedNodes.add(neighborNode);
+        }
+        arr.push(neighborNode);
+        }
+      }
+      // console.log([...visitedNodes].map(vertex => vertex.value));
+      return [...visitedNodes].map(vertex => vertex.value);
+
 
   // dfs(startNode) {
-  // }
+  }
 
 }
-
-
 
 // console.log(util.inspect(graph, false, null, true));
 // console.log(util.inspect(graph.bfs(ten), false, null, true));
 // console.log(util.inspect(graph.dfs(ten), false, null, true));
 
-module.exports =  {Vertex, Graph};
+module.exports = { Vertex, Graph, Edge };
