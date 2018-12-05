@@ -2,6 +2,7 @@
 const { Vertex } = require('../lib/graph.js');
 const { Graph } = require('../lib/graph.js');
 const { Edge } = require('../lib/graph.js');
+// const { getEdge } = require('../lib/graph.js');
 
 
 const testGraph = new Graph();
@@ -21,14 +22,14 @@ testGraph.addVertex(seven);
 testGraph.addVertex(three);
 testGraph.addVertex(eight);
 
-testGraph.addDirectedEdge(ten, two);
-testGraph.addDirectedEdge(ten, six);
-testGraph.addDirectedEdge(ten, three);
-testGraph.addDirectedEdge(two, seven);
-testGraph.addDirectedEdge(six, seven);
-testGraph.addDirectedEdge(six, eight);
-testGraph.addDirectedEdge(three, eight);
-testGraph.addDirectedEdge(eight, seven);
+testGraph.addDirectedEdge(ten, two, 2);
+testGraph.addDirectedEdge(ten, six, 5);
+testGraph.addDirectedEdge(ten, three, 6);
+testGraph.addDirectedEdge(two, seven, 10);
+testGraph.addDirectedEdge(six, seven, 20);
+testGraph.addDirectedEdge(six, eight, 1);
+testGraph.addDirectedEdge(three, eight, 6);
+testGraph.addDirectedEdge(eight, seven, 9);
 
 console.log(testGraph);
 
@@ -116,4 +117,32 @@ describe('breadthFirst', () => {
     let actual = testGraph.bfs(eight);
     expect(actual.length).toEqual(2);
   });
-});                                                                                                                                                                                                                                                                                                                          
+});    
+
+
+
+describe('getEdges', () => { 
+
+  it('should return false when array has less than 2 nodes', () => {
+    let arr = [ten]
+    let actual = testGraph.getEdge( arr);
+    expect(actual).toBeFalsy();
+  });
+
+  it('should return false when there is no neighbor', () => {
+    let arr = [ten, seven, eight];
+    let actual = testGraph.getEdge(arr);
+    expect(actual).toBeFalsy();   
+  }); 
+
+  it('should return false when there is no neighbor', () => {
+    let arr = [ten, three, eight];
+    let actual = testGraph.getEdge(arr);
+    expect(actual).toEqual(12);  
+  }); 
+
+});
+       
+
+ 
+
