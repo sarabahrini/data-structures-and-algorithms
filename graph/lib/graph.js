@@ -7,6 +7,7 @@
 class Vertex {
   constructor(value) {
     this.value = value;
+
   }
 }
 
@@ -33,9 +34,10 @@ class Graph {
     if (!this._adjacencyList.has(startVertex) || !this._adjacencyList.has(endVertex)) {
       return "vertices are not defined";
     }
-    const _adjacency = this._adjacencyList.get(startVertex);
-    _adjacency.push(new Edge(endVertex, weight));
+    const adjacency = this._adjacencyList.get(startVertex);
+    adjacency.push(new Edge(endVertex, weight));
   }
+  
 
   getNeighbors(vertex) {
 
@@ -47,9 +49,9 @@ class Graph {
 
 
   bfs(startNode) {
-if(!startNode){
-  return "No valid start node"
-}
+    if (!startNode) {
+      return "No valid start node"
+    }
     const arr = [];
 
     // set is a native JS object which collects items with no duplicates
@@ -59,30 +61,47 @@ if(!startNode){
     //.add & .has  are built in methods for set
     visitedNodes.add(startNode);
 
-    while(arr.length){
+    while (arr.length) {
       const currentNode = arr.shift();
       const neighbors = this.getNeighbors(currentNode);
-      for(let neighbor of neighbors){
+      for (let neighbor of neighbors) {
         const neighborNode = neighbor.vertex;
-        if(visitedNodes.has(neighborNode)){
+        if (visitedNodes.has(neighborNode)) {
           continue;
-        }else {
+        } else {
           visitedNodes.add(neighborNode);
         }
         arr.push(neighborNode);
-        }
       }
-      // console.log([...visitedNodes].map(vertex => vertex.value));
-      return [...visitedNodes].map(vertex => vertex.value);
+    }
+    // console.log([...visitedNodes].map(vertex => vertex.value));
+    return [...visitedNodes].map(vertex => vertex.value);
 
+  }
 
-  // dfs(startNode) {
+  getEdge(arr) {
+
+    if (arr.length < 2) return false;
+    let cost = 0;
+    for (let i = 0; i <= arr.length - 1; i++) {
+      console.log(arr);
+
+      let sN = arr[i];
+      let eN = arr[i + 1];
+      let isNeighbor = false;
+
+      let neighbors = this.getNeighbors(sN);
+      for (let n in neighbors) {
+        console.log(neighbors[n].vertex, eN)
+        if (neighbors[n].vertex === eN) {
+          cost += neighbors[n].weight;
+        } else continue;
+      }
+      if (!isNeighbor) return false;
+    }
+    return cost;
   }
 
 }
 
-// console.log(util.inspect(graph, false, null, true));
-// console.log(util.inspect(graph.bfs(ten), false, null, true));
-// console.log(util.inspect(graph.dfs(ten), false, null, true));
-
-module.exports = { Vertex, Graph, Edge };
+module.exports = { Vertex, Graph, Edge};
